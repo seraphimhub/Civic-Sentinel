@@ -1,0 +1,13 @@
+[project]
+name = "civic-sentinel"
+version = "0.1.0"
+description = "Defensive early-warning scanner for authorized web assets."
+requires-python = ">=3.11"
+readme = "README.md"
+
+[project.scripts]
+civic-sentinel = "civic_sentinel.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

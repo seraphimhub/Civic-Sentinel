@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Civic Sentinel Report</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18202b;
+      --muted: #586373;
+      --line: #d9dee7;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --critical: #9d1c2f;
+      --high: #c44228;
+      --medium: #9b6a00;
+      --low: #27636f;
+      --info: #56606f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      padding: 28px clamp(18px, 5vw, 56px);
+    }
+    main {
+      width: min(1040px, calc(100% - 36px));
+      margin: 28px auto 56px;
+    }
+    h1, h2, p { margin-top: 0; }
+    h1 { margin-bottom: 6px; font-size: clamp(1.7rem, 4vw, 2.4rem); }
+    .meta { color: var(--muted); margin-bottom: 18px; }
+    .score {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      font-weight: 700;
+    }
+    .score strong { font-size: 2rem; }
+    .finding {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left-width: 6px;
+      padding: 18px;
+      margin: 14px 0;
+    }
+    .finding h2 { font-size: 1.05rem; margin-bottom: 10px; }
+    .finding p { margin-bottom: 8px; }
+    .severity {
+      font-size: .76rem;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: 0;
+      margin-bottom: 7px;
+    }
+    .severity-critical { border-left-color: var(--critical); }
+    .severity-high { border-left-color: var(--high); }
+    .severity-medium { border-left-color: var(--medium); }
+    .severity-low { border-left-color: var(--low); }
+    .severity-info { border-left-color: var(--info); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Civic Sentinel Report</h1>
+    <p class="meta">https://example.com · generated 2026-05-18T14:38:12.941194+00:00</p>
+    <div class="score"><strong>56</strong><span>/100 · high</span></div>
+  </header>
+  <main>
+    
+        <article class="finding severity-high">
+          <div class="severity">HIGH</div>
+          <h2>HSTS is missing</h2>
+          <p><strong>Evidence:</strong> strict-transport-security was not present in the root response.</p>
+          <p><strong>Recommendation:</strong> Enable Strict-Transport-Security with a long max-age after validating HTTPS across subdomains.</p>
+        </article>
+        
+
+        <article class="finding severity-medium">
+          <div class="severity">MEDIUM</div>
+          <h2>Clickjacking protection header is missing</h2>
+          <p><strong>Evidence:</strong> x-frame-options was not present in the root response.</p>
+          <p><strong>Recommendation:</strong> Set X-Frame-Options or use CSP frame-ancestors.</p>
+        </article>
+        
+
+        <article class="finding severity-medium">
+          <div class="severity">MEDIUM</div>
+          <h2>Content-Security-Policy is missing</h2>
+          <p><strong>Evidence:</strong> content-security-policy was not present in the root response.</p>
+          <p><strong>Recommendation:</strong> Add a restrictive CSP to reduce XSS and injection impact.</p>
+        </article>
+        
+
+        <article class="finding severity-low">
+          <div class="severity">LOW</div>
+          <h2>MIME sniffing protection is missing</h2>
+          <p><strong>Evidence:</strong> x-content-type-options was not present in the root response.</p>
+          <p><strong>Recommendation:</strong> Set X-Content-Type-Options: nosniff.</p>
+        </article>
+        
+
+        <article class="finding severity-low">
+          <div class="severity">LOW</div>
+          <h2>Permissions-Policy is missing</h2>
+          <p><strong>Evidence:</strong> permissions-policy was not present in the root response.</p>
+          <p><strong>Recommendation:</strong> Restrict browser features that the site does not need.</p>
+        </article>
+        
+
+        <article class="finding severity-low">
+          <div class="severity">LOW</div>
+          <h2>Referrer-Policy is missing</h2>
+          <p><strong>Evidence:</strong> referrer-policy was not present in the root response.</p>
+          <p><strong>Recommendation:</strong> Set a privacy-preserving Referrer-Policy such as strict-origin-when-cross-origin.</p>
+        </article>
+        
+
+        <article class="finding severity-low">
+          <div class="severity">LOW</div>
+          <h2>security.txt is not published</h2>
+          <p><strong>Evidence:</strong> /.well-known/security.txt returned 404.</p>
+          <p><strong>Recommendation:</strong> Publish security.txt with vulnerability disclosure contacts and policy.</p>
+        </article>
+        
+  </main>
+</body>
+</html>

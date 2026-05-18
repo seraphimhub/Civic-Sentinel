@@ -1,0 +1,198 @@
+{
+  "tool": {
+    "name": "Civic Sentinel",
+    "version": "0.1.0"
+  },
+  "generated_at": "2026-05-18T14:38:12.941194+00:00",
+  "target": {
+    "raw": "https://example.com",
+    "normalized_url": "https://example.com",
+    "host": "example.com",
+    "port": 443,
+    "scheme": "https"
+  },
+  "risk": {
+    "score": 56,
+    "level": "high"
+  },
+  "findings": [
+    {
+      "check_id": "headers.missing.strict-transport-security",
+      "severity": "high",
+      "title": "HSTS is missing",
+      "evidence": "strict-transport-security was not present in the root response.",
+      "recommendation": "Enable Strict-Transport-Security with a long max-age after validating HTTPS across subdomains."
+    },
+    {
+      "check_id": "headers.missing.x-frame-options",
+      "severity": "medium",
+      "title": "Clickjacking protection header is missing",
+      "evidence": "x-frame-options was not present in the root response.",
+      "recommendation": "Set X-Frame-Options or use CSP frame-ancestors."
+    },
+    {
+      "check_id": "headers.missing.content-security-policy",
+      "severity": "medium",
+      "title": "Content-Security-Policy is missing",
+      "evidence": "content-security-policy was not present in the root response.",
+      "recommendation": "Add a restrictive CSP to reduce XSS and injection impact."
+    },
+    {
+      "check_id": "headers.missing.x-content-type-options",
+      "severity": "low",
+      "title": "MIME sniffing protection is missing",
+      "evidence": "x-content-type-options was not present in the root response.",
+      "recommendation": "Set X-Content-Type-Options: nosniff."
+    },
+    {
+      "check_id": "headers.missing.permissions-policy",
+      "severity": "low",
+      "title": "Permissions-Policy is missing",
+      "evidence": "permissions-policy was not present in the root response.",
+      "recommendation": "Restrict browser features that the site does not need."
+    },
+    {
+      "check_id": "headers.missing.referrer-policy",
+      "severity": "low",
+      "title": "Referrer-Policy is missing",
+      "evidence": "referrer-policy was not present in the root response.",
+      "recommendation": "Set a privacy-preserving Referrer-Policy such as strict-origin-when-cross-origin."
+    },
+    {
+      "check_id": "policy.security_txt_missing",
+      "severity": "low",
+      "title": "security.txt is not published",
+      "evidence": "/.well-known/security.txt returned 404.",
+      "recommendation": "Publish security.txt with vulnerability disclosure contacts and policy."
+    }
+  ],
+  "evidence": {
+    "dns": {
+      "A": [
+        "104.20.23.154",
+        "172.66.147.243"
+      ],
+      "AAAA": [
+        "2606:4700:10::6814:179a",
+        "2606:4700:10::ac42:93f3"
+      ]
+    },
+    "tls": {
+      "cipher": [
+        "TLS_AES_256_GCM_SHA384",
+        "TLSv1.3",
+        256
+      ],
+      "tls_version": "TLSv1.3",
+      "cert": {
+        "subject": [
+          [
+            [
+              "commonName",
+              "example.com"
+            ]
+          ]
+        ],
+        "issuer": [
+          [
+            [
+              "countryName",
+              "US"
+            ]
+          ],
+          [
+            [
+              "organizationName",
+              "CLOUDFLARE, INC."
+            ]
+          ],
+          [
+            [
+              "commonName",
+              "Cloudflare TLS Issuing ECC CA 1"
+            ]
+          ]
+        ],
+        "version": 3,
+        "serialNumber": "6520589EF17EB55C664433F29F2E684A",
+        "notBefore": "Apr  2 21:18:57 2026 GMT",
+        "notAfter": "Jul  1 21:24:46 2026 GMT",
+        "subjectAltName": [
+          [
+            "DNS",
+            "example.com"
+          ],
+          [
+            "DNS",
+            "*.example.com"
+          ]
+        ],
+        "OCSP": [
+          "http://o.cf-b.ssl.com"
+        ],
+        "caIssuers": [
+          "http://i.cf-b.ssl.com/Cloudflare-TLS-I-E1.cer"
+        ],
+        "crlDistributionPoints": [
+          "http://c.cf-b.ssl.com/Cloudflare-TLS-I-E1.crl"
+        ]
+      },
+      "expires_at": "2026-07-01T21:24:46+00:00",
+      "days_left": 44
+    },
+    "root_response": {
+      "status": 200,
+      "reason": "OK",
+      "headers": {
+        "date": [
+          "Mon, 18 May 2026 14:38:27 GMT"
+        ],
+        "content-type": [
+          "text/html"
+        ],
+        "transfer-encoding": [
+          "chunked"
+        ],
+        "connection": [
+          "keep-alive"
+        ],
+        "server": [
+          "cloudflare"
+        ],
+        "last-modified": [
+          "Sun, 17 May 2026 20:05:30 GMT"
+        ],
+        "allow": [
+          "GET, HEAD"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ],
+        "age": [
+          "8810"
+        ],
+        "cf-cache-status": [
+          "HIT"
+        ],
+        "cf-ray": [
+          "9fdb9b0eaa74fd1d-SIN"
+        ]
+      },
+      "body_sample_bytes": 512
+    },
+    "methods": {
+      "status": 405,
+      "allow": ""
+    },
+    "policy_files": {
+      "security_txt": {
+        "status": 404,
+        "bytes": 528
+      },
+      "robots_txt": {
+        "status": 404,
+        "bytes": 528
+      }
+    }
+  }
+}
